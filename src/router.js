@@ -1,21 +1,31 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
-import About from "./views/About.vue";
+import PositionSticky from "./views/PositionSticky.vue";
+import ObjectfitCover from "./views/ObjectfitCover.vue";
 
 Vue.use(Router);
 
+export const menu = [
+	{
+		path: "/position-sticky",
+		name: "position-sticky",
+		component: PositionSticky,
+		title: "position: sticky",
+		desc: "Pozwala na uczepienie się elementu wraz ze scrollowaniem",
+	},
+	{
+		path: "/object-fit-cover",
+		name: "object-fit-cover",
+		component: ObjectfitCover,
+		title: "object-fit: cover",
+		desc: "Pozwala na responsywne skalowanie obrazków w <img>",
+	},
+];
+
 export default new Router({
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: Home
-    },
-    {
-      path: "/about",
-      name: "about",
-      component: About
-    }
-  ]
+	routes: menu.map(menuItem => ({
+		path: menuItem.path,
+		name: menuItem.name,
+		component: menuItem.component,
+	}))
 });
