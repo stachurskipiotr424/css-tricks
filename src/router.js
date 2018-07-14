@@ -4,6 +4,9 @@ import PositionSticky from "./views/PositionSticky.vue";
 import ObjectFit from "./views/ObjectFit.vue";
 import BoxDecorationBreak from "./views/BoxDecorationBreak.vue";
 import CaretColor from "./views/CaretColor.vue";
+import Clip from "./views/Clip.vue";
+import UserSelect from "./views/UserSelect.vue";
+import FilterDropShadow from "./views/FilterDropShadow.vue";
 
 Vue.use(Router);
 
@@ -36,12 +39,38 @@ export const menu = [
 		title: "caret-color",
 		desc: "Pozwala ustawić kolor karetki",
 	},
+	{
+		path: "/clip",
+		name: "clip",
+		component: Clip,
+		title: "clip",
+		desc: "Pozwala na przycięcie elementu",
+	},
+	{
+		path: "/user-select",
+		name: "user-select",
+		component: UserSelect,
+		title: "user-select",
+		desc: "Pozwala na określenie sposobu zaznaczenia tekstu lub jego wyłączenie",
+	},
+	{
+		path: "/filter: drop-shadow",
+		name: "filter: drop-shadow",
+		component: FilterDropShadow,
+		title: "filter: drop-shadow",
+		desc: "Pozwala na tworzenie dokładnych cieni z svg i png",
+	},
 ];
 
+const vueMenu = menu.map(menuItem => ({
+	path: menuItem.path,
+	name: menuItem.name,
+	component: menuItem.component,
+}));
+
 export default new Router({
-	routes: menu.map(menuItem => ({
-		path: menuItem.path,
-		name: menuItem.name,
-		component: menuItem.component,
-	}))
+	routes: [...vueMenu, {
+		path: '*',
+		redirect: vueMenu[0].path
+	}]
 });
