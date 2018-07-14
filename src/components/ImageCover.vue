@@ -43,10 +43,10 @@
 		},
 		methods: {
 			add(prop) {
-				this[prop] += 10;
+				this[prop] += 20;
 			},
 			subtract(prop) {
-				this[prop] -= 10;
+				this[prop] -= 20;
 			}
 		},
 	}

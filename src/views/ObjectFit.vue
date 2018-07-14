@@ -5,7 +5,8 @@
 	<div class="grid">
 
 		<image-cover
-				v-for="option in options"
+				v-for="(option, index) in options"
+				:key="index"
 				:title="option.title"
 				:css-class="option.cssClass"/>
 
@@ -18,7 +19,7 @@
 	import ImageCover from "@/components/ImageCover.vue";
 
 	export default {
-		name: "objectfitCover",
+		name: "objectFit",
 		data() {
 			return {
 				options: [
