@@ -7,6 +7,9 @@ import CaretColor from "./views/CaretColor.vue";
 import Clip from "./views/Clip.vue";
 import UserSelect from "./views/UserSelect.vue";
 import FilterDropShadow from "./views/FilterDropShadow.vue";
+import WritingMode from "./views/WritingMode.vue";
+import MixBlendMode from "./views/MixBlendMode.vue";
+import HeadingMiddleBorder from "./views/HeadingMiddleBorder.vue";
 
 Vue.use(Router);
 
@@ -59,6 +62,27 @@ export const menu = [
 		component: FilterDropShadow,
 		title: "filter: drop-shadow",
 		desc: "Pozwala na tworzenie dokładnych cieni z svg i png",
+	},
+	{
+		path: "/writing-mode",
+		name: "writing-mode",
+		component: WritingMode,
+		title: "writing-mode",
+		desc: "Pozwala na określenie kierunku pisania tekstu",
+	},
+	{
+		path: "/mix-blend-mode",
+		name: "mix-blend-mode",
+		component: MixBlendMode,
+		title: "mix-blend-mode",
+		desc: "Pozwala na przezroczysty kolor tekstu dla białego i czarnego tła",
+	},
+	{
+		path: "/heading-middle-border",
+		name: "Środkowy border tytułu",
+		component: HeadingMiddleBorder,
+		title: "Środkowy border tytułu",
+		desc: "Technika uzyskania środkowego borderu niezależnego od tła poniżej",
 	},
 ];
 
